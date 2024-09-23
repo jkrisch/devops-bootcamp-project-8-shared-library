@@ -15,12 +15,12 @@ class Docker implements Serializable {
 
     def dockerBuild(String repo, String appname, String version){
         script.echo 'building docker image'
-        script.sh "docker build -t  ${repo}/${appname}:jma-${version} ."
+        script.sh "docker build -t  ${repo}/${appname}:${version} ."
     }
 
     def dockerPush(String repo, String appname, String version){
         script.echo "pushing image"
-        script.sh "docker push ${repo}/${appname}:jma-${version}"
+        script.sh "docker push ${repo}/${appname}:${version}"
     }
 
 }
