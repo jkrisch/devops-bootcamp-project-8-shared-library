@@ -1,10 +1,7 @@
 #!/user/bin/env groovy
+import comn.example.Docker
 
-def call(username, password, repo, appname){
-    echo 'building docker image'
-    sh """
-        echo ${password} | docker login -u ${username} --password-stdin
-        docker build -t ${repo}/${appname}:jma-${params.VERSION} .
-        docker push ${repo}/${appname}:jma-${params.VERSION}
-    """
+
+def call(String username, String password, String repo, String appname){
+    return new Docker(this).buildImage(username, password, repo, appname)
 }
