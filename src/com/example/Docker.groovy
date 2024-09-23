@@ -10,7 +10,7 @@ class Docker implements Serializable {
 
     def dockerLogin(String username, String password){
         script.echo "login to dockerhub"
-        scrip.sh "echo ${password} | docker login -u ${username} --password-stdin"
+        script.sh "echo ${password} | docker login -u ${username} --password-stdin"
     }
 
     def dockerBuild(String repo, String appname, String version){
@@ -20,7 +20,7 @@ class Docker implements Serializable {
 
     def dockerPush(String repo, String appname, String version){
         script.echo "pushing image"
-        scrip.sh "docker push ${repo}/${appname}:jma-${version}"
+        script.sh "docker push ${repo}/${appname}:jma-${version}"
     }
 
 }
