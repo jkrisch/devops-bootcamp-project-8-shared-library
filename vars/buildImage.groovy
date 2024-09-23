@@ -1,5 +1,5 @@
 #!/user/bin/env groovy
-import comn.example.Docker
+import com.example.Docker
 
 
 def call(String username, String password, String repo, String appname){
